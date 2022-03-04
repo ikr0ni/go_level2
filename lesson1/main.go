@@ -36,7 +36,7 @@ func lifeWithRecover() error {
 	return err
 }
 
-//Billion red roses
+//takeItEasy create 1000000 files
 func takeItEasy() error {
 	defer func() {
 		value := recover()
@@ -75,6 +75,7 @@ func takeItEasy() error {
 	return nil
 }
 
+//fileCreation create file
 func fileCreation(str string) error {
 	f, err := os.Create(str)
 	defer f.Close()
@@ -100,3 +101,16 @@ func main() {
 	}
 	fmt.Println("А завершаем программу успешно.")
 }
+
+// Билдим из под darwin
+//go env GOOS GOARCH
+//darwin
+//arm64
+//
+//для ppc64le
+//
+//env GOOS=linux GOARCH=ppc64le go build main.go
+//ikroni@Aleksandrs-MacBook-Pro lesson1 % ls
+//main	main.go
+//file main
+//main: ELF 64-bit LSB executable, 64-bit PowerPC or cisco 7500, OpenPOWER ELF V2 ABI, version 1 (SYSV), statically linked, Go BuildID=15Tp97NGGpTzpAcdY18J/glgmcbkd9_-gqwHv_49m/gHtl0hc4wukjnlkC5TaQ/WxDmcVYsoLe54lPEC80w, not stripped
